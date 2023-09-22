@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_BP" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
+<descriptions defaultDescription="CV_BP"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="MOHAN_DB_MASTER_BUSINESSPARTNER">
+    <resourceUri>MOHAN_DB_MASTER_BUSINESSPARTNER</resourceUri>
+  </DataSource>
+  <DataSource id="MOHAN_DB_MASTER_ADDRESS">
+    <resourceUri>MOHAN_DB_MASTER_ADDRESS</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="C1_1" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="NODE_KEY"/>
+      <viewAttribute id="BP_ROLE"/>
+      <viewAttribute id="EMAIL_ADDRESS"/>
+      <viewAttribute id="WEB_ADDRESS"/>
+      <viewAttribute id="CITY"/>
+      <viewAttribute id="BP_ID"/>
+      <viewAttribute id="POSTAL_CODE"/>
+      <viewAttribute id="ADDRESS_TYPE"/>
+      <viewAttribute id="VAL_START_DATE"/>
+      <viewAttribute id="VAL_END_DATE"/>
+      <viewAttribute hidden="true" id="JOIN$ADDRESS_GUID_NODE_KEY$NODE_KEY"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="MOHAN_DB_MASTER_BUSINESSPARTNER">
+      <mapping xsi:type="Calculation:AttributeMapping" target="NODE_KEY" source="NODE_KEY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BP_ROLE" source="BP_ROLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EMAIL_ADDRESS" source="EMAIL_ADDRESS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="WEB_ADDRESS" source="WEB_ADDRESS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BP_ID" source="BP_ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ADDRESS_GUID_NODE_KEY$NODE_KEY" source="ADDRESS_GUID_NODE_KEY"/>
+    </input>
+    <input node="MOHAN_DB_MASTER_ADDRESS">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITY" source="CITY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="POSTAL_CODE" source="POSTAL_CODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ADDRESS_TYPE" source="ADDRESS_TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VAL_START_DATE" source="VAL_START_DATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VAL_END_DATE" source="VAL_END_DATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ADDRESS_GUID_NODE_KEY$NODE_KEY" source="NODE_KEY"/>
+    </input>
+    <joinAttribute name="JOIN$ADDRESS_GUID_NODE_KEY$NODE_KEY"/>
+  </calculationView>
+</calculationViews>
+
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="NODE_KEY" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NODE_KEY"/>
+      <keyMapping columnObjectName="Join_1" columnName="NODE_KEY"/>
+    </attribute>
+    <attribute id="BP_ROLE" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BP_ROLE"/>
+      <keyMapping columnObjectName="Join_1" columnName="BP_ROLE"/>
+    </attribute>
+    <attribute id="EMAIL_ADDRESS" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EMAIL_ADDRESS"/>
+      <keyMapping columnObjectName="Join_1" columnName="EMAIL_ADDRESS"/>
+    </attribute>
+    <attribute id="WEB_ADDRESS" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WEB_ADDRESS"/>
+      <keyMapping columnObjectName="Join_1" columnName="WEB_ADDRESS"/>
+    </attribute>
+    <attribute id="CITY" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CITY"/>
+      <keyMapping columnObjectName="Join_1" columnName="CITY"/>
+    </attribute>
+    <attribute id="BP_ID" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BP_ID"/>
+      <keyMapping columnObjectName="Join_1" columnName="BP_ID"/>
+    </attribute>
+    <attribute id="POSTAL_CODE" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="POSTAL_CODE"/>
+      <keyMapping columnObjectName="Join_1" columnName="POSTAL_CODE"/>
+    </attribute>
+    <attribute id="ADDRESS_TYPE" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ADDRESS_TYPE"/>
+      <keyMapping columnObjectName="Join_1" columnName="ADDRESS_TYPE"/>
+    </attribute>
+    <attribute id="VAL_START_DATE" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VAL_START_DATE"/>
+      <keyMapping columnObjectName="Join_1" columnName="VAL_START_DATE"/>
+    </attribute>
+    <attribute id="VAL_END_DATE" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VAL_END_DATE"/>
+      <keyMapping columnObjectName="Join_1" columnName="VAL_END_DATE"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+    
+  
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="201"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape modelObjectName="MOHAN_DB_MASTER_BUSINESSPARTNER" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="303"/>
+    </shape>
+    <shape modelObjectName="MOHAN_DB_MASTER_ADDRESS" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="464" y="33"/>
+      <rectangleSize width="247"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

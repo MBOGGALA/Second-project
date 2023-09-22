@@ -8,6 +8,7 @@
   "dependencies": {
     "@sap/cds": "^7",
     "@sap/cds-hana": "^2",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
     "@sap/hdi-deploy": "^4.8.0",
     "express": "^4"
   },
@@ -19,7 +20,7 @@
   },
   "cds": {
     "build": {
-      "target": "./gen"
+      "target": "."
     },
     "requires": {
       "db": {
